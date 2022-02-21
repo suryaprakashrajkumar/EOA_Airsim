@@ -16,6 +16,7 @@ parser.add_argument("--save", action="store_true")
 parser.add_argument("--height", type=int, default=144)
 parser.add_argument("--width", type=int, default=256)
 global image
+global x = 0
 class AirSimEventGen:
     def __init__(self, W, H, save=False, debug=False):
         self.ev_sim = EventSimulator(W, H)
@@ -121,8 +122,9 @@ if __name__ == "__main__":
             print("*++++++*")
             print("******")
             cv2.imshow("Events", image)
-            roi = image[40:104, 0:256]
+            roi = image[40:104, 3:253]
             cv2.imshow("ROI", roi)
+            x = 1
             cv2.waitKey(1)
 
 
