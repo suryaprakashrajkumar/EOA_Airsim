@@ -6,3 +6,4 @@ from eventapi import AirSimEventGen
 import cv2
 
 image = AirSimEventGen.visualize_events()
+print(image)
