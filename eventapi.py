@@ -15,6 +15,7 @@ parser.add_argument("--save", action="store_true")
 parser.add_argument("--height", type=int, default=144)
 parser.add_argument("--width", type=int, default=256)
 
+image = 0
 
 class AirSimEventGen:
     def __init__(self, W, H, save=False, debug=False):
@@ -57,6 +58,8 @@ class AirSimEventGen:
         #plt.pause(0.01)
         cv2.imshow("Event", event_img)
         self.png = event_img
+        global image
+        image = event_img
         #self.out.write(event_img)
         cv2.imshow("RGB", self.png)
         cv2.waitKey(1)
