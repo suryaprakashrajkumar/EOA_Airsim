@@ -2,8 +2,7 @@
 #helper functions for airsims
 
 import imp
-from eventapi import event_generator
+from eventapi import AirSimEventGen
 import cv2
 
-event_generator.png
-print(event_generator.png)
+image = AirSimEventGen.visualize_events()
