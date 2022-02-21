@@ -17,7 +17,8 @@ parser.add_argument("--height", type=int, default=144)
 parser.add_argument("--width", type=int, default=256)
 global image
 image = 0
-
+def send(img):
+    return img
 class AirSimEventGen:
     def __init__(self, W, H, save=False, debug=False):
         self.ev_sim = EventSimulator(W, H)
@@ -129,5 +130,6 @@ if __name__ == "__main__":
             if event_generator.debug:
                 image = event_generator.visualize_events(event_img)
                 print(image)
+                send(image)
 
 
