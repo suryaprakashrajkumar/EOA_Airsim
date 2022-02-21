@@ -55,11 +55,12 @@ class AirSimEventGen:
         #self.ax[1].imshow(self.png)
         #plt.draw()
         #plt.pause(0.01)
-        #cv2.imshow("Event", event_img)
+        cv2.imshow("Event", event_img)
         self.png = event_img
         #self.out.write(event_img)
         cv2.imshow("RGB", self.png)
         cv2.waitKey(1)
+        return event_img
 
     def convert_event_img_rgb(self, image):
         image = image.reshape(self.H, self.W)
