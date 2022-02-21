@@ -16,7 +16,8 @@ parser.add_argument("--save", action="store_true")
 parser.add_argument("--height", type=int, default=144)
 parser.add_argument("--width", type=int, default=256)
 global image
-global x = 0
+global x 
+x = 0
 class AirSimEventGen:
     def __init__(self, W, H, save=False, debug=False):
         self.ev_sim = EventSimulator(W, H)
