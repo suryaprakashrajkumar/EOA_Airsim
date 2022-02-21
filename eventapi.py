@@ -15,7 +15,7 @@ parser.add_argument("--debug", action="store_true", default=True)
 parser.add_argument("--save", action="store_true")
 parser.add_argument("--height", type=int, default=144)
 parser.add_argument("--width", type=int, default=256)
-
+global image
 image = 0
 
 class AirSimEventGen:
@@ -82,7 +82,6 @@ class AirSimEventGen:
 
 if __name__ == "__main__":
     args = parser.parse_args()
-    global image
     event_generator = AirSimEventGen(args.width, args.height, save=args.save, debug=args.debug)
     i = 0
     start_time = 0
