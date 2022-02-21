@@ -127,6 +127,7 @@ if __name__ == "__main__":
                 pickle.dump(events, event_generator.event_file)
 
             if event_generator.debug:
-                event_generator.visualize_events(event_img)
+                image = event_generator.visualize_events(event_img)
+                print(image)
 
 
