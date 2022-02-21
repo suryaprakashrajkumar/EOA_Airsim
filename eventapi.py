@@ -49,19 +49,12 @@ class AirSimEventGen:
         self.rawImage = self.client.simGetImage("0", airsim.ImageType.Scene)
         self.png = cv2.imdecode(airsim.string_to_uint8_array(self.rawImage), cv2.IMREAD_UNCHANGED)
         event_img = self.convert_event_img_rgb(event_img)
-        #self.ax.cla()
-        #self.ax[1].cla()
-        #self.ax.imshow(event_img, cmap="viridis")
-        #self.ax[1].imshow(self.png)
-        #plt.draw()
-        #plt.pause(0.01)
-        cv2.imshow("Event", event_img)
+        #cv2.imshow("Event", event_img)
         self.png = event_img
         global image
         image = event_img
-        #self.out.write(event_img)
-        cv2.imshow("RGB", self.png)
-        cv2.waitKey(1)
+        #cv2.imshow("RGB", self.png)
+        #cv2.waitKey(1)
         return event_img
 
     def convert_event_img_rgb(self, image):
@@ -124,9 +117,13 @@ if __name__ == "__main__":
                 # Optimizations possible
                 pickle.dump(events, event_generator.event_file)
 
-            if event_generator.debug:
-                image = event_generator.visualize_events(event_img)
-                print("*++++++*")
+            image = event_generator.visualize_events(event_img)
+            print("*++++++*")
             print("******")
+            cv2.imshow("Events", image)
+            roi = image[40:104, 0:256]
+            cv2.imshow("ROI", roi)
+            cv2.waitKey(1)
+
 
 
