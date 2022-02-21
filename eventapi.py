@@ -1,3 +1,4 @@
+from glob import glob
 import numpy as np
 import airsim
 import time
@@ -81,7 +82,7 @@ class AirSimEventGen:
 
 if __name__ == "__main__":
     args = parser.parse_args()
-
+    global image
     event_generator = AirSimEventGen(args.width, args.height, save=args.save, debug=args.debug)
     i = 0
     start_time = 0
