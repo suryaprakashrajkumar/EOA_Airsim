@@ -126,6 +126,7 @@ if __name__ == "__main__":
 
             if event_generator.debug:
                 image = event_generator.visualize_events(event_img)
-                print(image)
+                print("*++++++*")
+            print("******")
 
 
