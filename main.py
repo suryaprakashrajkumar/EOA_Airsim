@@ -6,6 +6,7 @@ import time
 import cv2
 import matplotlib.pyplot as plt
 import sys, signal
+from airsim_api import *
 
 import pickle
 from event_simulator import *
@@ -77,3 +78,5 @@ while True:
         #cv2.imshow("2", img2)
         #cv2.imshow("3", img3)
         cv2.waitKey(1)
+        action = process(n)
+        print(action)
