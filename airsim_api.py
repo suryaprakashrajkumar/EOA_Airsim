@@ -31,7 +31,7 @@ def process(score):
         min_index = 1
     if min_value > 200:
         min_index = 3
-    return direction(min_index)
+    direction(min_index)
 
 def direction(direction):
     '''
@@ -40,20 +40,17 @@ def direction(direction):
     if direction == 1:
         wp[1] = wp[1]
         wp[0] = wp[0] + step
-        return 'forward'
     elif direction == 0:
         wp[1] = wp[1] - step
         wp[0] = wp[0]
-        return 'left'
     elif direction == 2:
         wp[1] = wp[1] + step
         wp[0] = wp[0] 
-        return 'right'
     elif direction == 3:
         wp[1] = wp[1]
         wp[0] = wp[0] 
-        return 'stop'
     client.moveToPositionAsync(wp[0], wp[1], height, velocity, timeout_sec=3e+38, yaw_mode=False).join()
+    print(wp)
 
 def score(x1,x2,x3):
   #find the more black score or less black score. 
