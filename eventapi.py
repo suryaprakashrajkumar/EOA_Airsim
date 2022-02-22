@@ -134,7 +134,7 @@ if __name__ == "__main__":
             image = event_generator.visualize_events(event_img)
             print("*++++++*")
             print("******")
-            cv2.imshow("Events", image)
+            #cv2.imshow("Events", image)
             roi = image[40:104, 2:254]
             cv2.imshow("ROI", roi)
             x = 1
@@ -145,9 +145,9 @@ if __name__ == "__main__":
             img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
             img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2GRAY)
             score(img1,img2,img3)
-            cv2.imshow("1", img1)
-            cv2.imshow("2", img2)
-            cv2.imshow("3", img3)
+            #cv2.imshow("1", img1)
+            #cv2.imshow("2", img2)
+            #cv2.imshow("3", img3)
             cv2.waitKey(1)
 
 
