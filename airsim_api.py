@@ -1,5 +1,9 @@
+
 #airsim_api
 #helper functions for airsims
+import airsim
+import numpy as np
+import time
 wp = [0,0]
 step = 0.1
 velocity = 1
