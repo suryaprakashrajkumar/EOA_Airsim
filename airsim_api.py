@@ -1,7 +1,21 @@
 #airsim_api
 #helper functions for airsims
+wp = [0,0]
+step = 0.1
+velocity = 1
+client = airsim.MultirotorClient()
+client.confirmConnection()
+client.enableApiControl(True)
 
+print (" ######################## UAV in start position ########################")
 
+print (" ################################# ARM #################################")
+client.armDisarm(True) # False to disarm
+
+print (" ############################### TAKEOFF ###############################")
+client.takeoffAsync(timeout_sec=10) # Takeoff to 3m from current pose
+
+print (" ###################### Avoidance Algorithm Start ######################")
 def process(score):
     '''
     find the lowest in the list and return the index and if elemnts are same and minimum return the first index
@@ -19,14 +33,22 @@ def direction(direction):
     convert the direction to the corresponding action
     '''
     if direction == 1:
+        wp[1] = wp[1]
+        wp[0] = wp[0] + step
         return 'forward'
     elif direction == 0:
+        wp[1] = wp[1] - step
+        wp[0] = wp[0]
         return 'left'
     elif direction == 2:
+        wp[1] = wp[1] + step
+        wp[0] = wp[0] 
         return 'right'
     elif direction == 3:
-        return 'yaw_left'
-
+        wp[1] = wp[1]
+        wp[0] = wp[0] 
+        return 'stop'
+    client.moveToPositionAsync(wp[0], wp[1], height, velocity, timeout_sec=3e+38, yaw_mode=False).join()
 
 def score(x1,x2,x3):
   #find the more black score or less black score. 
