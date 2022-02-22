@@ -29,4 +29,6 @@ def direction(direction):
         return 'yaw_left'
 
 
-process(n)
+
+head = process(n)
+print(head)
