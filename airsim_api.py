@@ -1,7 +1,6 @@
 #airsim_api
 #helper functions for airsims
 
-from main import * 
 
 def process(score):
     '''
@@ -29,6 +28,3 @@ def direction(direction):
         return 'yaw_left'
 
 
-
-head = process(n)
-print(head)
