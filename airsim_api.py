@@ -3,4 +3,4 @@
 
 import imp
 from main import * 
-print(n)
+

@@ -5,9 +5,8 @@ import airsim
 import time
 import cv2
 import matplotlib.pyplot as plt
-import argparse
 import sys, signal
-import pandas as pd
+
 import pickle
 from event_simulator import *
 
@@ -20,10 +19,10 @@ def score(x1,x2,x3):
   min_value = min(count)
   min_index = count.index(min_value)
   print(min_index)
-  print(min_value)
+  #print(min_value)
   return min_index
 
-event_generator = AirSimEventGen(256, 144, save= False, debug=True)
+event_generator = AirSimEventGen(256, 144, save= False,  debug=True)
 i = 0
 start_time = 0
 t_start = time.time()
@@ -52,19 +51,14 @@ while True:
     )
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
-    # Add small number to avoid issues with log(I)
     img = cv2.add(img, 0.001)
 
     ts = time.time() * 1000000000
     ts_delta = (ts - event_generator.start_ts) * 1e-3
-
-    # Event sim keeps track of previous image automatically
     event_img, events = event_generator.ev_sim.image_callback(img, ts_delta)
 
     if events is not None and events.shape[0] > 0:
         if event_generator.save:
-            # Using pickle dump in a per-frame fashion to save time, instead of savetxt
-            # Optimizations possible
             pickle.dump(events, event_generator.event_file)
 
         image = event_generator.visualize_events(event_img)
