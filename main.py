@@ -11,6 +11,17 @@ import pandas as pd
 import pickle
 from event_simulator import *
 
+def score(x1,x2,x3):
+  #find the more black score or less black score. 
+  count = [0,0,0]
+  count[0] = cv2.countNonZero(x1)
+  count[1] = cv2.countNonZero(x2)
+  count[2]= cv2.countNonZero(x3)
+  min_value = min(count)
+  min_index = count.index(min_value)
+  print(min_index)
+  print(min_value)
+
 event_generator = AirSimEventGen(256, 144, save= False, debug=True)
 i = 0
 start_time = 0
