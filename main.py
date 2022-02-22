@@ -20,7 +20,7 @@ def score(x1,x2,x3):
   min_index = count.index(min_value)
   print(min_index)
   #print(min_value)
-  return min_index
+  return count
 
 event_generator = AirSimEventGen(256, 144, save= False,  debug=True)
 i = 0
@@ -62,8 +62,6 @@ while True:
             pickle.dump(events, event_generator.event_file)
 
         image = event_generator.visualize_events(event_img)
-        print("*++++++*")
-        print("******")
         #cv2.imshow("Events", image)
         roi = image[40:104, 2:254]
         cv2.imshow("ROI", roi)
