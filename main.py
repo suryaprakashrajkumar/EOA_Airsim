@@ -11,8 +11,6 @@ from airsim_api import *
 import pickle
 from event_simulator import *
 
-
-
 event_generator = AirSimEventGen(256, 144, save= False,  debug=True)
 i = 0
 start_time = 0
