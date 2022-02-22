@@ -8,6 +8,7 @@ import cv2
 wp = [0,0]
 step = 0.1
 velocity = 1
+height = 5
 client = airsim.MultirotorClient()
 client.confirmConnection()
 client.enableApiControl(True)
