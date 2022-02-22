@@ -21,6 +21,7 @@ def score(x1,x2,x3):
   min_index = count.index(min_value)
   print(min_index)
   print(min_value)
+  return min_index
 
 event_generator = AirSimEventGen(256, 144, save= False, debug=True)
 i = 0
@@ -79,7 +80,6 @@ while True:
         img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
         img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
         img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2GRAY)
-        score(img1,img2,img3)
         #cv2.imshow("1", img1)
         #cv2.imshow("2", img2)
         #cv2.imshow("3", img3)
