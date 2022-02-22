@@ -66,5 +66,4 @@ while True:
         #cv2.imshow("2", img2)
         #cv2.imshow("3", img3)
         cv2.waitKey(1)
-        action = process(n)
-        print(action)
+        process(n)
