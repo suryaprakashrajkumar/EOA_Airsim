@@ -18,6 +18,18 @@ parser.add_argument("--width", type=int, default=256)
 global image
 global x 
 x = 0
+
+def score(x1,x2,x3):
+  #find the more black score or less black score. 
+  count = [0,0,0]
+  count[0] = cv2.countNonZero(x1)
+  count[1] = cv2.countNonZero(x2)
+  count[2]= cv2.countNonZero(x3)
+  min_value = min(count)
+  min_index = count.index(min_value)
+  print(min_index)
+  print(min_value)
+
 class AirSimEventGen:
     def __init__(self, W, H, save=False, debug=False):
         self.ev_sim = EventSimulator(W, H)
@@ -123,9 +135,16 @@ if __name__ == "__main__":
             print("*++++++*")
             print("******")
             cv2.imshow("Events", image)
-            roi = image[40:104, 3:253]
+            roi = image[40:104, 2:254]
             cv2.imshow("ROI", roi)
             x = 1
+            img1 = image[0:64,0:84]
+            img2 = image[0:64,84:168]
+            img3 = image[0:64,168:252]
+            score(img1,img2,img3)
+            cv2.imshow("1", img1)
+            cv2.imshow("2", img2)
+            cv2.imshow("3", img3)
             cv2.waitKey(1)
 
 
