@@ -51,8 +51,8 @@ while True:
             pickle.dump(events, event_generator.event_file)
 
         image = event_generator.visualize_events(event_img)
-        #cv2.imshow("Events", image)
-        roi = image[40:104, 2:254]
+        cv2.imshow("Events", image)
+        roi = image[0:64, 2:254]
         cv2.imshow("ROI", roi)
         x = 1
         img1 = image[0:64,0:84]
