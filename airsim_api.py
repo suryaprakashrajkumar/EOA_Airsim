@@ -32,6 +32,7 @@ def process(score):
         min_index = 1
     if min_value > 200:
         min_index = 3
+    print(min_value)
     direction(min_index)
 
 def direction(direction):
