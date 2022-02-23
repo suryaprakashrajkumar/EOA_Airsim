@@ -34,7 +34,8 @@ def process(score):
         min_index = 1
     if min_value > 200:
         min_index = 3
-    print(min_value)
+    print("Min_value:",min_value)
+    print("Direction:",min_index)
     direction(min_index)
 
 def direction(direction):
@@ -54,7 +55,7 @@ def direction(direction):
         wp[1] = wp[1]
         wp[0] = wp[0]
     client.simSetVehiclePose(airsim.Pose(airsim.Vector3r(wp[0], wp[1], -2), airsim.to_quaternion(0, 0, 0)), True)
-    print(wp)
+    print("WP",wp)
 
 def score(x1,x2,x3):
   #find the more black score or less black score. 
@@ -62,8 +63,4 @@ def score(x1,x2,x3):
   count[0] = cv2.countNonZero(x1)
   count[1] = cv2.countNonZero(x2)
   count[2]= cv2.countNonZero(x3)
-  min_value = min(count)
-  min_index = count.index(min_value)
-  print(min_index)
-  #print(min_value)
   return count
