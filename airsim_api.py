@@ -46,6 +46,7 @@ def direction(direction):
     global wp
     global step
     global prev_wp
+    print("Directions: ", direction)
     if direction == 1:
         wp[1] = wp[1]
         wp[0] = wp[0] + step
