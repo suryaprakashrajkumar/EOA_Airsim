@@ -45,12 +45,15 @@ def direction(direction):
     if direction == 1:
         wp[1] = wp[1]
         wp[0] = wp[0] + step
+        print{"Taking Straight"}
     elif direction == 0:
         wp[1] = wp[1] - step
         wp[0] = wp[0]
+        print{"Taking left"}
     elif direction == 2:
         wp[1] = wp[1] + step
         wp[0] = wp[0] 
+        print{"Taking right"}
     elif direction == 3:
         wp[1] = wp[1]
         wp[0] = wp[0]
