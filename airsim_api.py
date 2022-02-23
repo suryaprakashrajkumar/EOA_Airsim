@@ -19,9 +19,10 @@ print (" ################################# ARM #################################
 client.armDisarm(True) # False to disarm
 
 print (" ############################### TAKEOFF ###############################")
-client.takeoffAsync(timeout_sec=10) # Takeoff to 3m from current pose
 client.takeoffAsync(timeout_sec=10)
-client.takeoffAsync(timeout_sec=10)
+client.moveToZAsync( -5, 1).join()
+
+
 print (" ###################### Avoidance Algorithm Start ######################")
 def process(score):
     '''
