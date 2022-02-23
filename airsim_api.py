@@ -6,8 +6,8 @@ import numpy as np
 import time
 import cv2
 wp = [0,0]
-step = 0.1
-velocity = 1
+step = 0.5
+velocity = 5
 height = 5
 client = airsim.MultirotorClient()
 client.confirmConnection()
@@ -20,7 +20,7 @@ client.armDisarm(True) # False to disarm
 
 print (" ############################### TAKEOFF ###############################")
 client.takeoffAsync(timeout_sec=10)
-client.moveToZAsync( -5, 1).join()
+client.moveToZAsync( -2, 1).join()
 
 
 print (" ###################### Avoidance Algorithm Start ######################")
@@ -30,7 +30,7 @@ def process(score):
     '''
     min_value = min(score)
     min_index = score.index(min_value)
-    if min_value < 80:
+    if min_value < 100:
         min_index = 1
     if min_value > 200:
         min_index = 3
@@ -53,7 +53,7 @@ def direction(direction):
     elif direction == 3:
         wp[1] = wp[1]
         wp[0] = wp[0] 
-    client.simSetVehiclePose(airsim.Pose(airsim.Vector3r(wp[0], wp[1], -5), airsim.to_quaternion(0, 0, 0)), True) 
+    client.simSetVehiclePose(airsim.Pose(airsim.Vector3r(wp[0], wp[1], -2), airsim.to_quaternion(0, 0, 0)), True).join()
     print(wp)
 
 def score(x1,x2,x3):
