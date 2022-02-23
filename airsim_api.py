@@ -28,7 +28,7 @@ def process(score):
     '''
     min_value = min(score)
     min_index = score.index(min_value)
-    if min_value == score[1]:
+    if min_value < 60:
         min_index = 1
     if min_value > 200:
         min_index = 3
