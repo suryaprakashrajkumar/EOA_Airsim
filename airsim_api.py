@@ -50,7 +50,7 @@ def direction(direction):
     elif direction == 3:
         wp[1] = wp[1]
         wp[0] = wp[0] 
-    client.simSetVehiclePose(airsim.Pose(airsim.Vector3r(wp[0], wp[1], wp[2]), airsim.to_quaternion(0, 0, yaw)), True) 
+    client.simSetVehiclePose(airsim.Pose(airsim.Vector3r(wp[0], wp[1], 0), airsim.to_quaternion(0, 0, yaw)), True) 
     print(wp)
 
 def score(x1,x2,x3):
