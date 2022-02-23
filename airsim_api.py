@@ -42,6 +42,7 @@ def direction(direction):
     '''
     convert the direction to the corresponding action
     '''
+    global flag
     if direction == 1:
         wp[1] = wp[1]
         wp[0] = wp[0] + step
