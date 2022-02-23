@@ -20,7 +20,8 @@ client.armDisarm(True) # False to disarm
 
 print (" ############################### TAKEOFF ###############################")
 client.takeoffAsync(timeout_sec=10) # Takeoff to 3m from current pose
-
+client.takeoffAsync(timeout_sec=10)
+client.takeoffAsync(timeout_sec=10)
 print (" ###################### Avoidance Algorithm Start ######################")
 def process(score):
     '''
@@ -28,7 +29,7 @@ def process(score):
     '''
     min_value = min(score)
     min_index = score.index(min_value)
-    if min_value < 60:
+    if min_value < 80:
         min_index = 1
     if min_value > 200:
         min_index = 3
