@@ -7,7 +7,7 @@ import time
 import cv2
 wp = [0,0]
 step = 1
-velocity = 10
+velocity = 1
 height = 5
 client = airsim.MultirotorClient()
 client.confirmConnection()
