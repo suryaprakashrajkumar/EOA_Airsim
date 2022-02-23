@@ -65,9 +65,11 @@ def direction(direction):
         flag = 1
     else:
         if wp[0] != prev_wp[0] and wp[1] != prev_wp[1]:
+            print("prev wp: ", prev_wp)
             client.simSetVehiclePose(airsim.Pose(airsim.Vector3r(wp[0], wp[1], -2), airsim.to_quaternion(0, 0, 0)), True)
             prev_wp = wp
         else:
+            print("prev wp: ", prev_wp)
             print("holding")
     print(wp)
 
