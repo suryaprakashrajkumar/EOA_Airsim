@@ -43,6 +43,9 @@ def direction(direction):
     convert the direction to the corresponding action
     '''
     global flag
+    global wp
+    global step
+    global prev_wp
     if direction == 1:
         wp[1] = wp[1]
         wp[0] = wp[0] + step
