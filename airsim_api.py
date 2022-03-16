@@ -6,8 +6,8 @@ import numpy as np
 import time
 import cv2
 wp = [0,0]
-step = 1
-velocity = 10
+step = 4
+velocity = 20
 height = 5
 client = airsim.MultirotorClient()
 client.confirmConnection()
@@ -41,16 +41,16 @@ def direction(direction):
     convert the direction to the corresponding action
     '''
     if direction == 1:
-        wp[1] = wp[1]
+        wp[1] = wp[1] 
         wp[0] = wp[0] + step
         print("Taking Straight")
     elif direction == 0:
         wp[1] = wp[1] - step
-        wp[0] = wp[0]
+        wp[0] = wp[0] + step
         print("Taking left")
     elif direction == 2:
         wp[1] = wp[1] + step
-        wp[0] = wp[0] 
+        wp[0] = wp[0] + step
         print("Taking right")
     elif direction == 3:
         wp[1] = wp[1]
