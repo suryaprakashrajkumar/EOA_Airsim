@@ -6,7 +6,7 @@ import numpy as np
 import time
 import cv2
 wp = [0,0]
-step = 4
+step = 2
 velocity = 20
 height = 5
 client = airsim.MultirotorClient()
