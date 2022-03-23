@@ -11,10 +11,14 @@ pos = []
 step = 2
 velocity = 20
 height = 5
+duration = 0.5
 client = airsim.MultirotorClient()
 client.confirmConnection()
 client.enableApiControl(True)
-
+pitch = 0
+roll = 0
+yaw = 0
+speed = velocity
 print (" ######################## UAV in start position ########################")
 
 print (" ################################# ARM #################################")
@@ -43,23 +47,20 @@ def direction(direction):
     convert the direction to the corresponding action
     '''
     if direction == 1:
-        wp[1] = wp[1] 
-        wp[0] = wp[0] + step
+        pitch, roll, yaw  = client.getPitchRollYaw()
+        vx = math.cos(yaw) * speed
+        vy = math.sin(yaw) * speed
+        client.moveByVelocityZ(vx, vy, self.z, duration, DrivetrainType.ForwardOnly)
         print("Taking Straight")
     elif direction == 0:
-        wp[1] = wp[1] - step
-        wp[0] = wp[0] + step
+        client.rotateByYawRate(-30, duration)
         print("Taking left")
     elif direction == 2:
-        wp[1] = wp[1] + step
-        wp[0] = wp[0] + step
+        client.rotateByYawRate(30, duration)
         print("Taking right")
-    elif direction == 3:
-        wp[1] = wp[1]
-        wp[0] = wp[0]
 
-    client.simSetVehiclePose(airsim.Pose(airsim.Vector3r(wp[0], wp[1], -2), airsim.to_quaternion(0, 0, 0)), True)
-    print("WP",wp)
+    #client.simSetVehiclePose(airsim.Pose(airsim.Vector3r(wp[0], wp[1], -2), airsim.to_quaternion(0, 0, 0)), True)
+    #print("WP",wp)
 
 def score(x1,x2,x3):
   #find the more black score or less black score. 

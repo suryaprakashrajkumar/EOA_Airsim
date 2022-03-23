@@ -6,7 +6,7 @@ import time
 import cv2
 import matplotlib.pyplot as plt
 import sys, signal
-from airsim_api import *
+from api2 import *
 
 import pickle
 from event_simulator import *
