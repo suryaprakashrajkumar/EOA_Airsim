@@ -6,6 +6,7 @@ import airsim
 import numpy as np
 import time
 import cv2
+import math
 wp = [0,0]
 pos = []
 step = 2
