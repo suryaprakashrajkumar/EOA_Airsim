@@ -10,7 +10,7 @@ import math
 wp = [0,0]
 pos = []
 step = 2
-velocity = 0.5
+velocity = 2
 height = 5
 duration = 0.5
 client = airsim.MultirotorClient()
