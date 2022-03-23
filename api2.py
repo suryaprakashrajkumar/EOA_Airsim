@@ -47,7 +47,7 @@ def direction(direction):
     convert the direction to the corresponding action
     '''
     if direction == 1:
-        pitch, roll, yaw  = client.getPitchRollYaw()
+        pitch, roll, yaw  = airsim.to_eularian_angles(client.simGetVehiclePose().orientation)
         vx = math.cos(yaw) * speed
         vy = math.sin(yaw) * speed
         client.moveByVelocityZ(vx, vy, self.z, duration, DrivetrainType.ForwardOnly)
