@@ -51,7 +51,7 @@ def direction(direction):
         pitch, roll, yaw  = airsim.to_eularian_angles(client.simGetVehiclePose().orientation)
         vx = math.cos(yaw) * speed
         vy = math.sin(yaw) * speed
-        client.moveByVelocityZ(vx, vy, self.z, duration, DrivetrainType.ForwardOnly)
+        client.moveByVelocityZ(vx, vy,-2 , duration, client.DrivetrainType.ForwardOnly)
         print("Taking Straight")
     elif direction == 0:
         client.rotateByYawRate(-30, duration)
