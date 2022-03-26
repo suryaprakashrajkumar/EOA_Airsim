@@ -10,7 +10,7 @@ import math
 wp = [0,0]
 pos = []
 step = 2
-velocity = 1
+velocity = 0.1
 height = 5
 duration = 0.5
 client = airsim.MultirotorClient()
@@ -54,10 +54,10 @@ def direction(direction, min_value):
         client.moveByVelocityZAsync(vx, vy,-4, 1, airsim.DrivetrainType.ForwardOnly, airsim.YawMode(False, 0)).join()
         print("Taking Straight")
     elif direction == 0:
-        client.rotateByYawRateAsync(-20, duration).join()
+        client.rotateByYawRateAsync(-5, duration).join()
         print("Taking left")
     elif direction == 2:
-        client.rotateByYawRateAsync(20, duration).join()
+        client.rotateByYawRateAsync(5, duration).join()
         print("Taking right")
 
     #client.simSetVehiclePose(airsim.Pose(airsim.Vector3r(wp[0], wp[1], -2), airsim.to_quaternion(0, 0, 0)), True)
